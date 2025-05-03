@@ -1,10 +1,12 @@
 import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Button, TextInput } from 'react-native-paper';
 
 const LoginScreen = ({ navigation }) => {
+    const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -88,7 +90,8 @@ const LoginScreen = ({ navigation }) => {
                     mode="contained"
                     style={styles.loginButton}
                     labelStyle={styles.buttonLabel}
-                    onPress={handleLogin}
+                    onPress={() => router.push("home")}
+                    // onPress={handleLogin}
                 >
                     Login
                 </Button>
